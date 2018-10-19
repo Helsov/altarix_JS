@@ -22,7 +22,7 @@ function showResult (operand_a, operator, operand_b){
                 default:
                 throw console.error("Оператор должен быть: +, -, * или -");
             };
-            return eval(result);
+            return result;
         }
     } catch(e) {
         console.log(e);
