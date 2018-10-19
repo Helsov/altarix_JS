@@ -23,11 +23,11 @@ function showResult (operand_a, operator, operand_b){
                 throw console.error("Оператор должен быть: +, -, * или -");
             };
             return result;
-        }
+        };
     } catch(e) {
         console.log(e);
-    }
-}
+    };
+};
 
 showResult(3, '+', 5);
 
@@ -49,6 +49,6 @@ function showDecimal(count){
     let event = count.toFixed(2);
 	event = parseFloat(event);
     return event.toLocaleString();
-}
+};
 
 showDecimal(1005006.525);
