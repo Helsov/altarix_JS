@@ -1,4 +1,6 @@
 //#1
+// Функция – калькулятор. Получает 3 аргумента: первый операнд, оператор (+, -, *, /), второй операнд. Если операнды не являются числами, функция выбрасывает исключение. Если передан неизвестный оператор – функция выбрасывает исключение. Возвращает результат операции.
+
 function showResult (operand_a, operator, operand_b){
     try {
         if(typeof operand_a !== 'number' || typeof operand_b !== 'number' || typeof operator !== 'string') {
@@ -30,11 +32,9 @@ function showResult (operand_a, operator, operand_b){
 showResult(3, '+', 5);
 
 //#2
-function arraySearch(arr, str){
-    // return resultSearch = arr.filter(function(e){
-    //     return ~e.indexOf(str);
-    // }).length;
+// Функция получает первым параметром массив, каждый элемент которого является строкой. Вторым параметром подстроку для поиска. Возвращает количество элементов массива, которые содержат переданную подстроку.
 
+function arraySearch(arr, str){
     return resultSearch = arr.filter( e => (~e.indexOf(str))).length;
 };
 
@@ -43,6 +43,8 @@ var nameList = ['Вася', 'Коля Смирнов', 'Федя', 'Настя',
 arraySearch(nameList, 'Коля');
 
 //#3
+// Функция получает число и возвращает строку с отформатированным значением вида «(-) 00 000 000,00». Разделитель разрядов – пробел, разделитель целой и дробной части - запятая. Количество знаков после запятой – от 0 до 2-х.
+
 function showDecimal(count){
     let event = count.toFixed(2);
 	event = parseFloat(event);
