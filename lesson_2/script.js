@@ -29,11 +29,13 @@ function showResult (operand_a, operator, operand_b){
 showResult(3, '+', 5);
 
 function arraySearch(arr, str){
-    return resultSearch = arr.filter(function(e){
-        return e === str;
-    }).length;
-}
+    // return resultSearch = arr.filter(function(e){
+    //     return ~e.indexOf(str);
+    // }).length;
 
-var nameList = ['Вася', 'Коля', 'Федя', 'Настя', 'Игорь', 'Маша'];
+    return resultSearch = arr.filter( e => (~e.indexOf(str))).length;
+};
 
-arraySearch(nameList, 'Игорь');
+var nameList = ['Вася', 'Коля Смирнов', 'Федя', 'Настя', 'Игорь', 'Маша', 'Игорь Петрович', 'Коля Иванов'];
+
+arraySearch(nameList, 'Коля');
