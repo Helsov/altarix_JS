@@ -36,4 +36,4 @@ function arraySearch(arr, str){
 
 var nameList = ['Вася', 'Коля', 'Федя', 'Настя', 'Игорь', 'Маша'];
 
-arraySearch(nameList, 'Федя');
+arraySearch(nameList, 'Игорь');
