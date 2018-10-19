@@ -27,3 +27,13 @@ function showResult (operand_a, operator, operand_b){
 }
 
 showResult(3, '+', 5);
+
+function arraySearch(arr, str){
+    return resultSearch = arr.filter(function(e){
+        return e === str;
+    }).length;
+}
+
+var nameList = ['Вася', 'Коля', 'Федя', 'Настя', 'Игорь', 'Маша'];
+
+arraySearch(nameList, 'Федя');
