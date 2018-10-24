@@ -35,7 +35,7 @@ showResult(3, '+', 5);
 // Функция получает первым параметром массив, каждый элемент которого является строкой. Вторым параметром подстроку для поиска. Возвращает количество элементов массива, которые содержат переданную подстроку.
 
 function arraySearch(arr, str){
-    return arr.filter( e => ~e.toLowerCase().indexOf(str.toLowerCase()));
+    return arr.filter( e => ~e.toLowerCase().indexOf(str.toLowerCase())).length;
 };
 
 var nameList = ['Вася', 'Коля Смирнов', 'Федя', 'Настя', 'Игорь', 'Маша', 'Игорь Петрович', 'Коля Иванов'];
