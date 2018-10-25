@@ -4,7 +4,7 @@
 //function bind(func, context) { ... return function () { ... } } 
 
 function bind (func, context) {
-    return ()=> func.call(context);
+    return ()=> func.call(context, arguments);
 };
 
 function getConsole(){
