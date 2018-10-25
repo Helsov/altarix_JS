@@ -24,11 +24,19 @@ bind(getConsole, getName)();
 
 //function parseIntWithCashe() { ... return function () { ... } } 
 
-function parseIntWithCashe () {
+function parseIntWithCashe() {
+    var a;
+
     return function(){
-        return parseInt('F',16);
-    }
+        if(arguments){
+            return parseInt(arguments[0]);
+        } else {
+            return a; 
+        };
+    };
 };
+
+parseIntWithCashe()('24year');
 
 
 // принимает любое количество аргументов, 
