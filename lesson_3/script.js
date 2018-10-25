@@ -3,12 +3,8 @@
 
 //function bind(func, context) { ... return function () { ... } } 
 
-function bind(func, context) { 
-	return func.bind(context);
-};
-
-function getConsole(){
-    console.log(this);
+function bind (func, context) {
+    return () => func.call(context);
 };
 
 var getName = {
@@ -16,8 +12,7 @@ var getName = {
     familia: 'Fedorov'
 };
 
-bind(getConsole, getName)();
-
+bind(helloWorld, getName)();
 
 
 // не принимает аргументов, возвращает функцию, 
@@ -27,7 +22,9 @@ bind(getConsole, getName)();
 //function parseIntWithCashe() { ... return function () { ... } } 
 
 function parseIntWithCashe () {
-    
+    return function(){
+        return parseInt('F',16);
+    }
 };
 
 
