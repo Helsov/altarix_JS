@@ -4,15 +4,18 @@
 //function bind(func, context) { ... return function () { ... } } 
 
 function bind (func, context) {
-    return () => func.call(context);
+    return ()=> func.call(context);
 };
 
+function getConsole(){
+    return console.log(this);
+}
 var getName = {
     name:'Ivan',
     familia: 'Fedorov'
 };
 
-bind(helloWorld, getName)();
+bind(getConsole, getName)();
 
 
 // не принимает аргументов, возвращает функцию, 
