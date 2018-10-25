@@ -7,15 +7,15 @@ function bind (func, context) {
     return () => func.call(context, arguments);
 };
 
-function getConsole(){
+function infoConsole(){
     return console.log(this);
 }
-var getName = {
+var user = {
     name:'Ivan',
     familia: 'Fedorov'
 };
 
-bind(getConsole, getName)();
+bind(infoConsole, user)();
 
 
 // не принимает аргументов, возвращает функцию, 
