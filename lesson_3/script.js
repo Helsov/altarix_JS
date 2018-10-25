@@ -3,12 +3,32 @@
 
 //function bind(func, context) { ... return function () { ... } } 
 
+function bind(func, context) { 
+	return func.bind(context);
+};
+
+function getConsole(){
+    console.log(this);
+};
+
+var getName = {
+    name:'Ivan',
+    familia: 'Fedorov'
+};
+
+bind(getConsole, getName)();
+
+
 
 // не принимает аргументов, возвращает функцию, 
 // которая возвращает результат parseInt, если вызвана с таким аргументом впервые, 
 // иначе не вычисляет заново, а возвращает сохранённое значение 
 
 //function parseIntWithCashe() { ... return function () { ... } } 
+
+function parseIntWithCashe () {
+    
+};
 
 
 // принимает любое количество аргументов, 
@@ -17,8 +37,8 @@
 //function getTotalSum(a, b, c, ...) { ... } 
 
 function getTotalSum () {
-	return [...arguments].reduce((a, b)=> a + b);
-}
+	return [...arguments].reduce((a, b) => a + b);
+};
 
 getTotalSum(1, 2, 56, 5, 102);
 
