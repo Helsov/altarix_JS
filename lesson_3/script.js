@@ -26,13 +26,8 @@ bind(getConsole, getName)();
 
 function parseIntWithCashe() {
     var a;
-
     return function(){
-        if(arguments){
-            return parseInt(arguments[0]);
-        } else {
-            return a; 
-        };
+        return arguments ? parseInt(arguments[0]) : a;
     };
 };
 
