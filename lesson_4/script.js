@@ -6,7 +6,7 @@
 function Clock(){
     this.date = new Date();
     this.start = function(){
-        return setInterval(()=>this.date = new Date, 1000);
+        return setInterval(()=>this.date = new Date(), 1000);
     };
     this.getTime = function(){
         return this.date.toLocaleTimeString();
