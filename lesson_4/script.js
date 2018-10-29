@@ -5,12 +5,15 @@
 
 function Clock(){
     this.date = new Date();
-    this.start = function(){
-        return setInterval(()=>this.date = new Date(), 1000);
-    };
-    this.getTime = function(){
-        return this.date.toLocaleTimeString();
-    };
+};
+
+Clock.prototype = {
+    start: function(){
+        return setInterval(()=>this.date = new Date(), 1000)
+    },
+    getTime: function(){
+        return this.date.toLocaleTimeString()
+    }
 };
 
 //Создаем экземпляр часов и запускаем их
@@ -29,4 +32,24 @@ setTimeout(function() {
 
 function AlarmClock(){
     Clock.apply(this, arguments);
-}
+    this.alarmTime;
+};
+
+AlarmClock.prototype.setAlartmTime = function(e){
+    return this.alarmTime = e;
+};
+
+AlarmClock.prototype.start = function(){
+    Clock.prototype.start.apply(this, arguments);
+    setInterval(()=>{
+        this.date = this.date.toLocaleTimeString();
+        if(this.date == this.alarmTime){
+            alert ('Будильник сработал в: ' + this.alarmTime);
+        }
+    }, 1000);
+};
+
+
+var myAlarmClock = new AlarmClock();
+myAlarmClock.setAlartmTime('11:39:40');
+myAlarmClock.start();
