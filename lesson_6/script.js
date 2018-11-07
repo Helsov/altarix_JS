@@ -15,16 +15,17 @@
 
 
 function loadGitHubUsers (searchString) {
+    var table = document.querySelector('#result');
     try {
         if(typeof searchString !== 'string'){
-            throw document.querySelector('#result').innerHTML = `<tr><td class="danger">Данные некорректны, требуется ввести строку</td></tr>`;
+            throw table.innerHTML = `<tr><td class="danger">Данные некорректны, требуется ввести строку</td></tr>`;
         } else {
-            fetch(`https://api.github.com/search/users?q=${searchString}`)
+            return fetch(`https://api.github.com/search/users?q=${searchString}`)
                 .then(function(res){
                     return res.json();
                 })
                 .then(function(req){
-                    document.querySelector('#result').innerHTML = `
+                    table.innerHTML = `
                     <tr>
                         <td><h5>Id</h5></td>
                         <td><h5>Login</h5></td>
@@ -32,7 +33,7 @@ function loadGitHubUsers (searchString) {
                         <td><h5>Avatar</h5></td>
                     </tr>`;
                     for (var i = 0; i <= 5; i++) {
-                        document.querySelector('#result').innerHTML += `
+                        table.innerHTML += `
                         <tr>
                             <td>${req.items[i].id}</td>
                             <td>${req.items[i].login}</td>
@@ -45,7 +46,7 @@ function loadGitHubUsers (searchString) {
                 })
                 .catch(function(error){
                     console.log(error);
-                    return document.querySelector('#result').innerHTML = `<tr><td class="danger">По Вашему запросу ничего не найдено</td></tr>`;
+                    return table.innerHTML = `<tr><td class="danger">По Вашему запросу ничего не найдено</td></tr>`;
                 })
         };
     } catch(error) {
