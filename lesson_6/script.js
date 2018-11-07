@@ -15,22 +15,37 @@
 
 
 function loadGitHubUsers (searchString) {
-    var content = '';
     try {
         if(typeof searchString !== 'string'){
-            throw console.error("Данные некорректны, требуется ввести строку");
+            throw document.querySelector('#result').innerHTML = `<tr><td class="danger">Данные некорректны, требуется ввести строку</td></tr>`;
         } else {
             fetch(`https://api.github.com/search/users?q=${searchString}`)
                 .then(function(res){
-                    return res.json()
+                    return res.json();
                 })
                 .then(function(req){
+                    document.querySelector('#result').innerHTML = `
+                    <tr>
+                        <td><h5>Id</h5></td>
+                        <td><h5>Login</h5></td>
+                        <td><h5>Score</h5></td>
+                        <td><h5>Avatar</h5></td>
+                    </tr>`;
                     for (var i = 0; i <= 5; i++) {
-                        document.querySelector('#result').innerHTML += `<div class="col-md-6">${req.items[i].id}</div><div class="col-md-6">${req.items[i].login}</div>`;
+                        document.querySelector('#result').innerHTML += `
+                        <tr>
+                            <td>${req.items[i].id}</td>
+                            <td>${req.items[i].login}</td>
+                            <td>${req.items[i].score}</td>
+                            <td>
+                                <img src="${req.items[i].avatar_url}">
+                            </td>
+                        </tr>`;
                     }
                 })
                 .catch(function(error){
-                    return error;
+                    console.log(error);
+                    return document.querySelector('#result').innerHTML = `<tr><td class="danger">По Вашему запросу ничего не найдено</td></tr>`;
                 })
         };
     } catch(error) {
@@ -40,7 +55,6 @@ function loadGitHubUsers (searchString) {
 }
 
 document.querySelector('#btnHead').addEventListener('click', function(e){
-    e.preventDefault();
     loadGitHubUsers(document.querySelector('#name').value);
 })
 
