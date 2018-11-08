@@ -41,19 +41,21 @@ rowComesTwo('Logopedos');
 /* Дан объект с настройками, например, {id: 'elem', color: 'blue', border: '1px solid red', font: '15px Arial'}. Сделайте функцию, которая получает этот объект, извлекает из него все настройки в соответствующие переменные и для элемента с указанным id (в нашем случае это 'elem') ставит заданные CSS свойства. В объекте могут быть только эти ключи, однако, какой-либо ключ (кроме id) может быть не задан - в этом случае пусть возьмутся следующие значения по умолчанию: color: 'blue', border: '1px solid red', font: '15px Arial'. */
 
 
-var elemChar = {
-    id: 'elem',
-    color: 'blue',
-    border: '1px solid red',
-    font: '25px Arial'
-};
-
-function parsingItem(element){
-    var {id, color='red', border='1px solid red', font='15px Arial'} = element;
-    return document.getElementById(id).style.cssText = `color: ${color}; border: ${border}; font: ${font}`;
-};
-
-parsingItem(elemChar);
+window.onload = function(){
+    var elemChar = {
+        id: 'elem',
+        color: 'blue',
+        border: '1px solid red',
+        font: '25px Arial'
+    };
+    
+    function parsingItem(element){
+        var {id, color='red', border='1px solid red', font='15px Arial'} = element;
+        return document.getElementById(id).style.cssText = `color: ${color}; border: ${border}; font: ${font}`;
+    };
+    
+    parsingItem(elemChar);
+}
 
 
 
