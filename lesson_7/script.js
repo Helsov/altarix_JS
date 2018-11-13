@@ -60,3 +60,35 @@ window.onload = function(){
 
 
 /* Дан массив с числами. Создать функцию, которая с помощью цикла и метода add добавит все элементы этого массива в коллекцию Set. Причем у функции будет два параметра – массив поэлементно (не объект массива, а все элементы передать в параметры), option – отвечает за выбор чисел из массива. Должны быть доступны опции – четные числа, нечетные числа, все подряд числа. */
+
+var collectionNumber = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+
+function arrayHandler(array, option){
+    var set = new Set();
+    var option = option.toLowerCase();
+
+    try {
+        if(typeof array !== "object"){
+            throw alert("Данные некорректны. Введите массив.");
+        } else {
+            array.forEach(e => set.add(e));
+            
+            switch(option){
+                case 'четные':
+                    var result = set.forEach(num => ~num % 2 ? console.log(num) : null);
+                    break;
+                case 'нечетные':
+                    var result = set.forEach(num => num % 2 ? console.log(num) : null);
+                    break;
+                default:
+                var result = set.forEach(num => console.log(num));
+            };
+            return result;
+        }
+    } catch (e) {
+        console.log(e);
+    }
+
+};
+
+arrayHandler(collectionNumber, 'Нечетные');
