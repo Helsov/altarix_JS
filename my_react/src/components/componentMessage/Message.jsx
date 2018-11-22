@@ -8,6 +8,8 @@ class Message extends Component {
         this.state = {
             messageList: dbMessage,
         }
+
+        this.addMessage = this.addMessage.bind(this);
     }
 
     addMessage(){
@@ -21,7 +23,10 @@ class Message extends Component {
             })
         );
 
-        console.log(dbMessage);
+        this.setState({
+            messageList: dbMessage, 
+        });
+        
         message.value = '';
     }
 
