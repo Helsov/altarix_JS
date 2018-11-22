@@ -17,8 +17,8 @@ class Message extends Component {
         message.value === '' ? console.log('Нет текста') : (
             dbMessage.push({
                 userId: 2,
-                userIcon: "",
-                userName: "Smith",
+                userIcon: './images/my.jpg',
+                userName: 'Капитан Смоллит',
                 text: message.value
             })
         );
@@ -26,7 +26,7 @@ class Message extends Component {
         this.setState({
             messageList: dbMessage, 
         });
-        
+
         message.value = '';
     }
 
