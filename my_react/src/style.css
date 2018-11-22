@@ -27,6 +27,10 @@ body {
   font-size: 2em;
 }
 
+.message {
+  margin-top: 20px;
+}
+
 .message__text {
   display: inline-block;
   vertical-align: middle;
@@ -39,6 +43,7 @@ body {
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
   padding: 15px;
+  font-size: 1em;
 }
 
 .message__send {
@@ -53,11 +58,15 @@ body {
 }
 
 .chat ul {
-  padding: 20px;
+  padding: 20px 40px 20px 20px;
   border: 1px solid gray;
-  border-radius: 30px;
+  border-radius: 10px;
   overflow: overlay;
   height: 500px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .chat-block {
@@ -72,7 +81,7 @@ body {
 }
 
 .chat-block__name {
-  padding-left: 25px;
+  display: inline-block;
   color: white;
   padding-top: 15px;
 }
@@ -119,8 +128,7 @@ body {
 }
 
 .myMessage .chat-block__name {
-  padding-left: 0px;
-  padding-right: 25px;
+  display: inline-block;
 }
 
 .myMessage .chat-block__item-message {

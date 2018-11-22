@@ -28,6 +28,8 @@ body {
 }
 
 .message {
+    margin-top: 20px;
+
     &__text {
         display: inline-block;
         vertical-align: middle;
@@ -40,6 +42,7 @@ body {
         -ms-border-radius: 20px;
         -o-border-radius: 20px;
         padding: 15px;
+        font-size: 1em;
     }
 
     &__send {
@@ -57,12 +60,16 @@ body {
 .chat {
 
     ul {
-        padding: 20px;
+        padding: 20px 40px 20px 20px;
         border: 1px solid gray;
-        border-radius: 30px;
+        border-radius: 10px;
         overflow: overlay;
         height: 500px;
-    }
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+}
 
     &-block {
         text-align: justify;
@@ -75,7 +82,7 @@ body {
         }
 
         &__name {
-            padding-left: 25px;
+            display: inline-block;
             color: white;
             padding-top: 15px;
         }
@@ -92,16 +99,17 @@ body {
                 border-radius: 65px;
                 overflow: hidden;
             }
+
             &-message {
                 color: white;
                 margin-left: 30px;
                 padding: 10px 20px;
-                border-radius: 15px         ;
-                -webkit-border-radius: 15px         ;
-                -moz-border-radius: 15px         ;
-                -ms-border-radius: 15px         ;
-                -o-border-radius: 15px         ;
-                border:1px solid gray;
+                border-radius: 15px;
+                -webkit-border-radius: 15px;
+                -moz-border-radius: 15px;
+                -ms-border-radius: 15px;
+                -o-border-radius: 15px;
+                border: 1px solid gray;
             }
         }
     }
@@ -122,8 +130,7 @@ body {
             text-align-last: right;
 
             &__name {
-                padding-left: 0px;
-                padding-right: 25px;
+                display: inline-block;
             }
 
             &__item {

@@ -10,7 +10,7 @@ class Chat extends Component {
                         <li key={index} className="yourMessage">
                             <div className="chat-block">
                                 <div className="chat-block__item">
-                                    <img src="./images/avatar.png" alt=""/>
+                                    <img src={message.userIcon} alt=""/>
                                 </div>
                                 <div className="chat-block__item">
                                     <div className="chat-block__item-message">
@@ -31,7 +31,7 @@ class Chat extends Component {
                                     </div>
                                 </div>
                                 <div className="chat-block__item">
-                                    <img src="./images/avatar.png" alt=""/>
+                                    <img src={message.userIcon} alt=""/>
                                 </div>
                             </div>
                             <div className="chat-block__name">
