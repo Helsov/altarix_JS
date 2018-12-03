@@ -10,6 +10,7 @@ body {
 .wrapper {
   max-width: 1024px;
   margin: 0 auto;
+  position: relative;
 }
 
 .header {
@@ -50,6 +51,7 @@ body {
   display: inline-block;
   vertical-align: middle;
   margin-left: 20px;
+  width: 8%;
 }
 
 .message__send img {
@@ -134,4 +136,24 @@ body {
 .myMessage .chat-block__item-message {
   margin-left: 0px;
   margin-right: 30px;
+}
+
+.footer {
+  margin-top: 20px;
+  padding: 50px 20px;
+  background: #4872a3;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.load {
+  text-align: center;
+}
+
+.load img {
+  width: 250px;
+  padding: 50px;
 }

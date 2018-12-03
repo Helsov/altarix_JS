@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 
-export default class Header extends Component {
+export default class Footer extends Component {
     render(){
         return (
-            <div className="header">
+            <div className="footer">
                 <div className="wrapper">
                     <div className="row">
-                        <div className="header__title">{this.props.name}</div>
+                        © 2018 Klepikov Vladislav, Inc.
                     </div>
                 </div>
             </div>

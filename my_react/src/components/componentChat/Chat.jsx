@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 
-class Chat extends Component {
+export default class Chat extends Component {
     render(){
-        return (
-            <div className="chat">
+        return ( this.props.messages.length > 0 ? 
+                <div className="chat">
+                    <div className="wrapper">
+                        <div className="row">
                 <ul>
-                    {this.props.message.map((message, index)=>{
-                       return message.userId !== 2 ? 
+                    {this.props.messages.map((message, index)=>{
+                       return message.isOutgoing === false ? 
                         <li key={index} className="yourMessage">
                             <div className="chat-block">
                                 <div className="chat-block__item">
-                                    <img src={message.userIcon} alt=""/>
+                                    <img src='../images/avatar.png' alt=""/>
                                 </div>
                                 <div className="chat-block__item">
                                     <div className="chat-block__item-message">
@@ -19,7 +21,7 @@ class Chat extends Component {
                                 </div>
                             </div>
                             <div className="chat-block__name">
-                                {message.userName}
+                                {message.name}
                             </div>
                         </li>
                         :  
@@ -31,18 +33,27 @@ class Chat extends Component {
                                     </div>
                                 </div>
                                 <div className="chat-block__item">
-                                    <img src={message.userIcon} alt=""/>
+                                    <img src='../images/avatar.png' alt=""/>
                                 </div>
                             </div>
                             <div className="chat-block__name">
-                                {message.userName}
+                                {message.name}
                             </div>
                         </li>
                     })}
                 </ul>
             </div>
+                </div>
+            </div>
+            :
+            <div className="load">
+                <div className="wrapper">
+                    <div className="row">
+                    <img src="../images/load.gif" alt=""/>
+                    </div>
+                </div>
+            </div>
+            
         )
     }
 }
-
-export default Chat;

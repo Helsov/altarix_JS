@@ -1,48 +1,32 @@
 import React, {Component} from 'react';
-import dbMessage from '../componentsDB/dbMessage';
-import Chat from '../componentChat/Chat';
 
-class Message extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            messageList: dbMessage,
-        }
+export default class Message extends Component {
 
-        this.addMessage = this.addMessage.bind(this);
-    }
-
-    addMessage(){
+    addMessage = () =>{
         let message = document.querySelector('.message__text');
-        message.value === '' ? console.log('Нет текста') : (
-            dbMessage.push({
-                userId: 2,
-                userIcon: './images/my.jpg',
-                userName: 'Капитан Смоллит',
-                text: message.value
-            })
-        );
-
-        this.setState({
-            messageList: dbMessage, 
-        });
-
+        if(message.value !== '') {
+            this.props.addMessage(message.value);
+        };
         message.value = '';
     }
 
+    enterMessage = (e) => {
+        if (e.key === 'Enter') {
+            this.addMessage();
+        }
+    }
+    
     render(){
+
         return (
-            <div>
-                <Chat message={this.state.messageList}/>
-                <div className="message">
-                    <textarea name="message__text" className="message__text" placeholder="Введите сообщение"></textarea>
-                    <div onClick={this.addMessage} className="message__send">
-                        <img src="./images/tel.png" alt=""/>
+            <div className="message">
+                <div className="wrapper">
+                    <div className="row">
+                        <textarea onKeyPress={this.enterMessage} name="message__text" className="message__text" placeholder="Введите сообщение"></textarea>
+                        <input onClick={this.addMessage} className="message__send" type="image" src="./images/tel.png" alt=""/>
                     </div>
                 </div>
             </div>
         )
     }
 }
-
-export default Message;
