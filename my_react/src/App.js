@@ -4,6 +4,8 @@ import Chat from './components/componentChat/Chat';
 import Message from './components/componentMessage/Message';
 import Footer from './components/componentFooter/Footer';
 import {db} from './components/componentFirebase/Firebase';
+import { connect } from 'react-redux';
+import { listMessage } from './redux/action';
 
 class App extends Component {
   state = {
@@ -30,10 +32,8 @@ class App extends Component {
             isOutgoing: isOutgoing
         });
       }
-
-      this.setState({
-        messageList: dbMessage
-      });
+      delete dbMessage[84];
+      this.props.dispatch(listMessage(dbMessage));
 
     })
   }
@@ -49,13 +49,11 @@ class App extends Component {
     db.ref(`/messages/${Date.now()}`).set(message);
   }
 
-  
-  
   render() {
     return (
       <div className="App">
         <Header name={this.state.name}/>
-        <Chat messages={this.state.messageList}/>
+        <Chat messages={this.props.messages}/>
         <Message addMessage={this.addMessage}/>
         <Footer/>
       </div>
@@ -63,4 +61,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+      messages: state.messages
+  }
+}
+
+export default connect(mapStateToProps)(App);

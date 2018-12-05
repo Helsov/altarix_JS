@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { addMessage } from '../../redux/action';
 
-export default class Message extends Component {
+class Message extends Component {
 
     addMessage = () =>{
         let message = document.querySelector('.message__text');
         if(message.value !== '') {
+            this.props.dispatch(addMessage(message.value));
             this.props.addMessage(message.value);
         };
         message.value = '';
@@ -30,3 +33,11 @@ export default class Message extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        text: state.text
+    }
+}
+
+export default connect(mapStateToProps)(Message);
