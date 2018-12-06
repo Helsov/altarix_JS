@@ -1,13 +1,16 @@
-export function listMessage(messages){
+export const GET_MESSAGE = 'GET_MESSAGE';
+export const SET_MESSAGES = 'SET_MESSAGES';
+
+export function getMessages(messages){
     return {
-        type: 'LIST_MESSAGE',
+        type: GET_MESSAGE,
         payload: messages
     }
 }
 
-export function addMessage(text){
+export function setMessages(text){
     return {
-        type: 'ADD_MESSAGE',
+        type: SET_MESSAGES,
         payload: text
     }
 }
