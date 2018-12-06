@@ -30,7 +30,6 @@ class App extends Component {
       }
 
       delete dbMessage[84];
-      console.log(dbMessage)
       this.props.dispatch(getMessages(dbMessage));
 
     })
