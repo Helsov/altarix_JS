@@ -10,7 +10,7 @@ export function reducer (state, action) {
         case SET_MESSAGES:
             return {
                 ...state,
-                text: action.payload
+                newMessage: action.payload
             }
         default:
             return state;
@@ -19,6 +19,5 @@ export function reducer (state, action) {
 
 export const initialState = {
     messages: [],
-    text: 'Hi',
     name: 'testName'
 };

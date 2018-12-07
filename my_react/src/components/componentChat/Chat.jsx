@@ -8,7 +8,7 @@ export default class Chat extends Component {
                         <div className="row">
                 <ul>
                     {this.props.messages.map((message, index)=>{
-                       return message.isOutgoing === false ? 
+                       return message.name !== this.props.name ? 
                         <li key={index} className="yourMessage">
                             <div className="chat-block">
                                 <div className="chat-block__item">

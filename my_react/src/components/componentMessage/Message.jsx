@@ -1,17 +1,30 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import { setMessages } from '../../redux/action';
 
-export default class Message extends Component {
+class Message extends Component {
+    state = {
+        value: ''
+    };
+
+    handleChange = (e) => {
+        this.setState({
+            value: e.target.value,
+        });
+    }
 
     addMessage = () =>{
-        let message = document.querySelector('.message__text');
-        if(message.value !== '') {
-            this.props.addMessage({
+        if(this.state.value !== '') {
+            let newMessage = {
                 id: Date.now(),
                 name: this.props.name,
-                text: message.value
-            });
+                text: this.state.value
+            }
+            this.props.addMessage(newMessage);
         };
-        message.value = '';
+        this.setState({
+            value: ''
+        })
     }
 
     enterMessage = (e) => {
@@ -26,7 +39,7 @@ export default class Message extends Component {
             <div className="message">
                 <div className="wrapper">
                     <div className="row">
-                        <textarea onKeyPress={this.enterMessage} name="message__text" className="message__text" placeholder="Введите сообщение"></textarea>
+                        <textarea onChange={this.handleChange} value={this.state.value} onKeyPress={this.enterMessage} name="message__text" className="message__text" placeholder="Введите сообщение"/>
                         <input onClick={this.addMessage} className="message__send" type="image" src="./images/tel.png" alt=""/>
                     </div>
                 </div>
@@ -34,3 +47,19 @@ export default class Message extends Component {
         )
     }
 }
+
+const mapStateToProps = store => {
+    return {
+      ...store
+    }
+}
+
+function mapDispatchToProps( dispatch ){
+    return {
+      setMessages(text) {
+        dispatch(setMessages(text))
+      }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Message)

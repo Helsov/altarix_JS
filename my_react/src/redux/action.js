@@ -11,6 +11,11 @@ export function getMessages(messages){
 export function setMessages(text){
     return {
         type: SET_MESSAGES,
-        payload: text
+        payload: {
+            id: Date.now(),
+            name: 'testName',
+            isOutgoing: true,
+            text: text
+        }
     }
 }
